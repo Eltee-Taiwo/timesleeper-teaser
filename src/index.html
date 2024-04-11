@@ -4,14 +4,141 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
+  <title>Timesleeper | A Bisong Taiwo Film</title>
+  <link rel="icon" type="image/jpg" href="./Content/Images/timesleeper.jpg">
+  <link href="./Content/bootstrap.css" rel="stylesheet" />
+  <link href="./Content/toastr.css" rel="stylesheet" />
+  <link href="./Content/font-awesome.css" rel="stylesheet" />
+  <link href="./Content/stars.css" rel="stylesheet" />
+  <link href="./Content/bootstrap-override.css" rel="stylesheet" />
+  <link href="./Content/site.css" rel="stylesheet" />
+  <script type="text/javascript" src="./Scripts/jquery-1.10.2.js"></script>
 </head>
 
-<body>
-  <main>
-    <h1>Vanilla JavaScript App</h1>
-  </main>
+<div id="NavBar" class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+      <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a href="http://www.boatent.com"><img class="navbar-brand" src="./Content/Images/logo.png" alt="Logo" /></a>
+      </div>
+      <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+              <li><a href="https://timesleeper.com">MAIN SITE</a></li>
+              <li><a href="http://www.facebook.com/timesleepermovie/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="http://www.twitter.com/timesleeperfilm/" target="_blank"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="http://www.instagram.com/timesleepermovie/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+          </ul>
+      </div>
+  </div>
+</div>    
+<div class="starscape">
+      <div class="white-stars">
+          <span class="white-star-1"></span>
+          <span class="white-star-2"></span>
+          <span class="white-star-3"></span>
+          <span class="white-star-4"></span></div>
+        <div class="orbs"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+<div class="page-content">
+  <section id="LandingSection" class="placeholder"></section>
+  <section id="ContactSection" class="placeholder">
+      <div id="scrollIndicatorDiv">
+          <p id="scrollIndicatorP"><span id="scrollIndicator"></span>Scroll</p>
+      </div>
+      <div class="row">
+          <div class="col-sm-8 col-sm-offset-2 text-center">
+              <div id="EmailDiv">
+                  <h2>Enter your email to stay up to date on the film!</h2>
+                  <div class="row">
+                      <div class="col-sm-6 col-sm-offset-3">
+                          <form id="SubscribeForm">
+                              <input id="Email" name="Email" type="email" class="form-control" placeholder="Enter Email Address" />
+                              <p id="ErrorMessage" class="hidden">Please enter a valid email address</p>
+                              <br />
+                              <button id="EmailSubscribe" type="submit" class="btn btn-default">SUBSCRIBE</button>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+              <div id="EmailLoadingDiv" class="hidden">
+                  <div class="text-center"><i class="fa fa-spinner fa-spin" style="font-size:5em"></i></div>
+              </div>
+          </div>
+      </div>
+  </section>
+</div>
+
+<footer>
+  <p>&copy; 2018 - Designed by<a href="http://eltee27.com" class="btn btn-link">Eltee</a></p>
+</footer>
+<script type="text/javascript">
+  $("#SubscribeForm").on('submit', function (e) {
+      e.preventDefault();
+      Loading(true);
+      debugger;
+
+      var subscribePost = {
+          "EmailAddress": $("#Email").val()
+      }
+      var postRequest = {
+          "url": "api/Subscribe", 
+          "method": "POST",
+          "headers": {
+              "Content-Type": "application/json"
+          },
+          "data": JSON.stringify(subscribePost),
+      };
+
+      if (ValidateForm()) {
+          $.ajax(postRequest)
+          .done(function(response) {
+              toastr.success('Thanks', 'Thank you for subscribing to our film updates!!')
+              $("#EmailDiv").addClass("hidden");
+              $("#EmailLoadingDiv").html('<h2>Thank you for subscribing to our film updates!</h2>')
+          })
+          .fail(function(response) {
+              toastr.error('Looks like something went wrong. Please try again or contact us directly.', 'Uh oh :(')
+              $("#EmailLoadingDiv").html('<h2>Oh no! Something went wrong.</h2>')
+              Loading(false);
+          })
+          .always(function(response) {            
+            $("#EmailLoadingDiv").removeClass("hidden");
+          });
+      }
+      else {
+          Loading(false);
+          $("#Email").addClass("error");
+          $("#ErrorMessage").removeClass("hidden");
+      }
+  });
+
+  function ValidateForm() {
+      let regex = /(([\w-\.]+)@([\w-\.]+)\.([\w-\.]+))/;
+      let match = $("#Email").val().match(regex);
+      if (null === match) {
+          return false;
+      }
+      return true;
+  }
+
+  function Loading(val) {
+      if (val === true) {
+          $("#EmailDiv").addClass("hidden");
+          $("#EmailLoadingDiv").removeClass("hidden");
+      }
+      else {
+          $("#EmailDiv").removeClass("hidden");
+          $("#EmailLoadingDiv").addClass("hidden");
+      }
+  }
+</script>
+<script type="text/javascript" src="./Scripts/bootstrap.js"></script>
+<script type="text/javascript" src="./Scripts/toastr.js"></script>
+<script type="text/javascript" src="./Scripts/site.js"></script>
 </body>
 
 </html>

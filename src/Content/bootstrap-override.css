@@ -1,0 +1,132 @@
+/*#region Navbar*/
+
+.navbar {
+    -webkit-transition: height 0.7s ease-out, background-color 0.7s ease-in-out;
+    -moz-transition: height 0.7s ease-out, background-color 0.7s ease-in-out;
+    -o-transition: height 0.7s ease-out, background-color 0.7s ease-in-out;
+    transition: height 0.7s ease-out, background-color 0.7s ease-in-out;
+}
+
+    .navbar.navbar-default {
+        background: none;
+        border: none;
+        height: 70px;
+    }
+
+#NavBar.navbar.scrolled {
+    background: #FF0066;
+    height: 40px;
+}
+
+@media all and (min-width: 768px) {
+    .navbar-brand, .navbar-nav > li > a {
+        padding-top: 25px;
+        -webkit-transition: padding-top 0.7s ease-out;
+        -moz-transition: padding-top 0.7s ease-out;
+        -o-transition: padding-top 0.7s ease-out;
+        transition: padding-top 0.7s ease-out;
+    }
+
+    .navbar-default.scrolled .navbar-brand, .navbar-default.scrolled .navbar-nav > li > a {
+        padding-top: 15px;
+    }
+}
+
+
+.navbar-collapse {
+    float: right;
+}
+
+.navbar-default .navbar-collapse .navbar-nav a {
+    color: #FF0066;
+}
+
+    .navbar-default .navbar-collapse .navbar-nav a:hover {
+        color: #FFFFFF;
+    }
+
+.navbar-collapse.in {
+    width: 70%;
+    background-color: #FF0066;
+    color: #FFFFFF;
+    margin-top: -10px;
+    border-top: none;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #FFFFFF;
+}
+
+    .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+        background-color: #FFFFFF;
+    }
+
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #FFFFFF;
+    }
+
+    .navbar-default .navbar-toggle:hover .icon-bar, .navbar-default .navbar-toggle:focus .icon-bar {
+        background-color: #FF0066;
+    }
+
+.navbar-default .navbar-collapse.in .navbar-nav a {
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.navbar-default.scrolled .navbar-collapse .navbar-nav a {
+    color: #FFFFFF;
+}
+
+    .navbar-default.scrolled .navbar-collapse .navbar-nav a:hover {
+        color: #000000;
+    }
+
+#NavBar img {
+    max-height: 80px;
+    padding-top: 10px;
+}
+
+#NavBar.scrolled img {
+    max-height: 60px;
+    padding-top: 0;
+}
+
+.container.body-content {
+    padding-top: 70px;
+}
+/*#endregion Navbar*/
+
+
+.form-control {
+    color: #FF0066;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+    .form-control.error {
+        border-color: #FF0066;
+        box-shadow: 3px 3px 10px;
+    }
+
+#ErrorMessage {
+    color: #FF0066;
+}
+
+.btn-default {
+    background-color: #000000;
+    color: white;
+    border-color: #FFFFFF;
+}
+
+    .btn-default:hover {
+        box-shadow: 7px 7px 15px #1ADBF8, 7px -7px 15px #1ADBF8, -7px 7px 15px #1ADBF8, -7px -7px 15px #1ADBF8;
+    }
+
+.btn-link {
+    color: #FF0066;
+}
+
+.row{
+    margin-right: 0px;
+}

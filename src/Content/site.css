@@ -1,0 +1,113 @@
+body {
+    background-color: #000000;
+    color: #FFFFFF;
+    /*//color: #1ADBF8;*/
+}
+
+section.placeholder {
+    border: 5px black solid;
+    height: 30vh;
+}
+
+section:first-child {
+    height: 90vh;
+    background: url("./Images/timesleeper.jpg") no-repeat center;
+    background-size: contain;
+    opacity: 0.7;
+}
+
+.page-content {
+    padding-top: 70px;
+    z-index: 1000;
+}
+
+#scrollIndicatorDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: -10px;
+    z-index: 2;
+    color: #FF0066;
+    font: normal 400 20px/1 'Josefin Sans', sans-serif;
+    letter-spacing: .1em;
+    text-decoration: none;
+    transition: opacity .3s;
+    -webkit-transition: opacity 0.7s;
+    -moz-transition: opacity 0.7s;
+    -ms-transition: opacity 0.7s;
+    -o-transition: opacity 0.7s;
+    transition: opacity 0.7s;
+}
+
+#scrollIndicatorP {
+}
+
+#scrollIndicator {
+    position: absolute;
+    top: 91vh;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    margin-left: -12px;
+    border-left: 1px solid #FF0066;
+    border-bottom: 1px solid #FF0066;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    box-sizing: border-box;
+    -webkit-animation: sdb05 1.5s infinite;
+    animation: sdb05 1.5s infinite;
+}
+
+@media all and (max-width: 750px){
+    #scrollIndicatorDiv{
+        margin-top: -25px;
+    }
+
+    #scrollIndicator{
+        top: 90vh;
+    }
+}
+@-webkit-keyframes sdb05 {
+    0% {
+        -webkit-transform: rotate(-45deg) translate(0, 0);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: rotate(-45deg) translate(-20px, 20px);
+        opacity: 0;
+    }
+}
+
+@keyframes sdb05 {
+    0% {
+        transform: rotate(-45deg) translate(0, 0);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: rotate(-45deg) translate(-20px, 20px);
+        opacity: 0;
+    }
+}
+
+.clear{
+    opacity: 0;
+    height: 0;
+}
+
+footer{
+    text-align: center;
+    margin-top: 10vh;
+}
+
